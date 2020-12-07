@@ -37,9 +37,15 @@ namespace MandelbrotGenerator
 
         private void Generator_ImageGenerated(object sender, EventArgs<Tuple<Area, Bitmap, TimeSpan>> e)
         {
-            currentArea = e.Value.Item1;
-            pictureBox.Image = e.Value.Item2;
-            toolStripStatusLabel.Text = "Done (Runtime: " + e.Value.Item3.ToString() + ")";
+            if (InvokeRequired)
+            {
+                Invoke(new Action<object, EventArgs<Tuple<Area, Bitmap, TimeSpan>>>((s, args) => Generator_ImageGenerated(s, args)), sender, e);
+            } else
+            {
+                currentArea = e.Value.Item1;
+                pictureBox.Image = e.Value.Item2;
+                toolStripStatusLabel.Text = "Done (Runtime: " + e.Value.Item3.ToString() + ")";
+            }
         }
 
         private void UpdateImage(Area area)
