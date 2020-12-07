@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Threading;
 
 namespace MandelbrotGenerator
@@ -16,11 +17,27 @@ namespace MandelbrotGenerator
 
             Bitmap bitmap = new Bitmap(area.Width, area.Height);
 
-            //insert code
+            for (int i = 0; i < area.Width; i++)
+            {
+                for (int j = 0; j < area.Height; j++)
+                {
+                    cReal = area.MinReal + i * area.PixelWidth;
+                    cImg = area.MinImg + j * area.PixelHeight;
+                    zReal = 0;
+                    zImg = 0;
 
-            Thread.Sleep(1000);
-
-            //end insert
+                    int k = 0;
+                    while (((zReal * zReal + zImg * zImg) < zBorder) && (k < maxIterations)) // may be zImg + zImg
+                    {
+                        zNewReal = zReal * zReal - zImg * zImg + cReal;
+                        zNewImg = 2 * zReal * zImg + cImg;
+                        zReal = zNewReal;
+                        zImg = zNewImg;
+                        k++;
+                    }
+                    bitmap.SetPixel(i, j, ColorSchema.GetColor(k));
+                }
+            }
 
             return bitmap;
         }
