@@ -1,11 +1,14 @@
 ﻿using System;
 
-namespace MandelbrotGenerator {
-  public class EventArgs<T> : EventArgs {
-    public T Value { get; private set; }
+namespace MandelbrotGenerator
+{
+    public class EventArgs<T> : EventArgs
+    {
+        public T Value { get; private set; }
 
-    public EventArgs(T value) {
-      Value = value;
+        public EventArgs(T value)
+        {
+            Value = value;
+        }
     }
-  }
 }

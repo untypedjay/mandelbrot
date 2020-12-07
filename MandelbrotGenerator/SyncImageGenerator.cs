@@ -1,25 +1,28 @@
 ﻿using System.Drawing;
 using System.Threading;
 
-namespace MandelbrotGenerator {
-  public class SyncImageGenerator : IImageGenerator {
-    public Bitmap GenerateImage(Area area) {
-      int maxIterations;
-      double zBorder;
-      double cReal, cImg, zReal, zImg, zNewReal, zNewImg;
+namespace MandelbrotGenerator
+{
+    public class SyncImageGenerator : IImageGenerator
+    {
+        public Bitmap GenerateImage(Area area)
+        {
+            int maxIterations;
+            double zBorder;
+            double cReal, cImg, zReal, zImg, zNewReal, zNewImg;
 
-      maxIterations = Settings.DefaultSettings.MaxIterations;
-      zBorder = Settings.DefaultSettings.ZBorder * Settings.DefaultSettings.ZBorder;
+            maxIterations = Settings.DefaultSettings.MaxIterations;
+            zBorder = Settings.DefaultSettings.ZBorder * Settings.DefaultSettings.ZBorder;
 
-      Bitmap bitmap = new Bitmap(area.Width, area.Height);
+            Bitmap bitmap = new Bitmap(area.Width, area.Height);
 
-      //insert code
+            //insert code
 
-      Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
-      //end insert
+            //end insert
 
-      return bitmap;
+            return bitmap;
+        }
     }
-  }
 }
