@@ -65,6 +65,7 @@
     <Compile Include="Area.cs" />
     <Compile Include="ColorSchema.cs" />
     <Compile Include="EventArgs.cs" />
+    <Compile Include="AsyncImageGenerator.cs" />
     <Compile Include="SyncImageGenerator.cs" />
     <Compile Include="IImageGenerator.cs" />
     <Compile Include="MainForm.cs">

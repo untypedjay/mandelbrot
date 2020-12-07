@@ -4,9 +4,9 @@ using System.Threading;
 
 namespace MandelbrotGenerator
 {
-    public class SyncImageGenerator : IImageGenerator
+    public static class SyncImageGenerator
     {
-        public Bitmap GenerateImage(Area area)
+        public static Bitmap GenerateImage(Area area)
         {
             int maxIterations;
             double zBorder;

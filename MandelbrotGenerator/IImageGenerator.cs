@@ -1,9 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace MandelbrotGenerator
 {
     public interface IImageGenerator
     {
-        Bitmap GenerateImage(Area area);
+        void GenerateImage(Area area);
+
+        event EventHandler<EventArgs<Tuple<Area, Bitmap, TimeSpan>>> ImageGenerated;
     }
 }
