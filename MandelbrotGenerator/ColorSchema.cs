@@ -12,11 +12,11 @@ namespace MandelbrotGenerator
             }
             else
             {
-                int red = (iterations % 32) * 3;
+                int red = (iterations % 16) * 2;
                 if (red > 255)
                     red = 255;
 
-                int green = (iterations % 16) * 2;
+                int green = (iterations % 32) * 3;
                 if (green > 255)
                     green = 255;
 

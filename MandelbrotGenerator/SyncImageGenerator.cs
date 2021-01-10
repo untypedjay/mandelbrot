@@ -13,7 +13,7 @@ namespace MandelbrotGenerator
             double cReal, cImg, zReal, zImg, zNewReal, zNewImg;
 
             maxIterations = Settings.DefaultSettings.MaxIterations;
-            zBorder = Settings.DefaultSettings.ZBorder * Settings.DefaultSettings.ZBorder;
+            zBorder = Settings.DefaultSettings.ZBorder * Settings.DefaultSettings.ZBorder; // so we don't have to take the square root in while loop
 
             Bitmap bitmap = new Bitmap(area.Width, area.Height);
 

@@ -9,7 +9,13 @@ namespace MandelbrotGenerator
     {
         public void GenerateImage(Area area)
         {
-            Thread thread = new Thread(new ParameterizedThreadStart(Run));
+            if (isRunning)
+            {
+                thread.Abort();
+            }
+
+            isRunning = true;
+            thread = new Thread(new ParameterizedThreadStart(Run));
             thread.Start(area);
         }
 
@@ -19,6 +25,9 @@ namespace MandelbrotGenerator
             ImageGenerated?.Invoke(this, new EventArgs<Tuple<Area, Bitmap, TimeSpan>>(new Tuple<Area, Bitmap, TimeSpan>(area, bitmap, timespan)));
         }
 
+        private bool isRunning = false;
+        private Thread thread;
+
         private void Run(object a)
         {
             Area area = (Area)a;
@@ -27,6 +36,7 @@ namespace MandelbrotGenerator
             var bitmap = SyncImageGenerator.GenerateImage(area);
             stopwatch.Stop();
             OnImageGenerated(area, bitmap, stopwatch.Elapsed);
+            isRunning = false;
         }
     }
 }
