@@ -1,11 +1,3 @@
-﻿# almond-breads
-* 02.3441
-* 02.3406
-* 02.3026
-* 02.3784
-* 02.4310
-* 02.3453
-* 02.4016
-* 02.3314
-* 02.4314
-* 02.3911`
+# mandelbrot
+
+A Windows Forms .NET application to visualize the mandelbrot set.
