@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace MandelbrotGenerator
 {
-    public class AsyncImageGenerator : IImageGenerator
+    public class AsyncImageGeneratorThreads : IImageGenerator
     {
         public void GenerateImage(Area area)
         {
@@ -33,7 +33,7 @@ namespace MandelbrotGenerator
             Area area = (Area)a;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            var bitmap = SyncImageGenerator.GenerateImage(area);
+            var bitmap = ImageGenerator.GenerateImageSync(area);
             stopwatch.Stop();
             OnImageGenerated(area, bitmap, stopwatch.Elapsed);
             isRunning = false;

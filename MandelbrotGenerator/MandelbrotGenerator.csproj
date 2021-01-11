@@ -63,10 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area.cs" />
+    <Compile Include="AsyncImageGeneratorThreads.cs" />
     <Compile Include="ColorSchema.cs" />
     <Compile Include="EventArgs.cs" />
-    <Compile Include="AsyncImageGenerator.cs" />
-    <Compile Include="SyncImageGenerator.cs" />
+    <Compile Include="AsyncImageGeneratorBackgroundWorker.cs" />
+    <Compile Include="ImageGenerator.cs" />
     <Compile Include="IImageGenerator.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
